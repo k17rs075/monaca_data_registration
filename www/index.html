@@ -35,6 +35,19 @@
             $("#fetch").html(data + ":"+update);
           })
         }
+        function fetchAll(){
+          var TestClass=ncmb.DataStore("TestClass");
+          TestClass.fetchAll()
+          .then(function(results){
+            var msg="";
+            for(var i=0;i<results.length;i++){
+            var data=results[i].get("message");
+            var update=results[i].get("updateDate");
+            msg+=data+":"+update+"<br>";
+            }
+            $("#fetch").html(msg);
+          })
+        }
     </script>
 </head>
 <body>
@@ -44,7 +57,7 @@
     <a class="button--large"onclick="fetchDemo()">Fetch Demo</a>
     <div>fetch Demo</div>
     <a class="button--large"onclick="fetchAll()">FetchAll</a>
-    <div>fetch Demo</div>
-    <div id="fetch">data here</div>
+    <div>fetch all Demo</div>
+    <div id="fetch">hello</div>
 </body>
 </html>
